@@ -188,6 +188,24 @@ Removes a specific device. The removal is required if a device shall be paired w
 
 ## {% linkable_title Examples %}
 
+### {% linkable_title Double Press on Smart Button %}
+
+This example toggles the living room lamp when the button is double clicked.
+
+```yaml
+- alias: Toggle the living room lamp
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d000xxxxxc2
+      click_type: double
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.living_room_lamp
+
+
 ### {% linkable_title Long Press on Smart Button %}
 
 This example plays the sound of a dog barking when the button is held down and stops the sound when the button is pressed once.
